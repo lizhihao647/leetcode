@@ -1,0 +1,20 @@
+bool isHappy(int n){
+    int k = 0,x = n;
+    while(count(x) != 1 && k < 10000){
+        x = count(x);
+        ++k;
+    }
+    if(k >= 10000) return false;
+    else {
+        return true;
+    }
+}
+int count(int x){
+    int ans  = 0;
+    while(x >= 1){
+        int a = x - x / 10 * 10;
+        ans += a * a;
+        x /= 10;
+    }
+    return ans;
+}
